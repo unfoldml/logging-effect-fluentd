@@ -1,8 +1,4 @@
-{-# LANGUAGE ConstraintKinds #-}
-{-# LANGUAGE DataKinds #-}
-{-# LANGUAGE LambdaCase #-}
 {-# language OverloadedStrings #-}
-{-# language TypeFamilies #-}
 {-# options_ghc -Wno-unused-imports #-}
 module Control.Monad.Log.Fluentd (fluentdLogging) where
 
@@ -38,7 +34,7 @@ fluentdLogging :: (Msg.MessagePack a, MonadIO m, MonadMask m) =>
                -> m b
 fluentdLogging opts uri k = withTLS $ \tlscfg -> withBatchedHandler opts (flush tlscfg) k
   where
-    flush tlscfg mq = runReq tlscfg $ fluentdReq uri (NE.toList mq)
+    flush tcfg mq = runReq tcfg $ fluentdReq uri (NE.toList mq)
 
 
 withTLS :: MonadIO m =>
