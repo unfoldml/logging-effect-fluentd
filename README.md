@@ -1,5 +1,3 @@
 # logging-effect-fluentd
 
-[![Build Status](https://travis-ci.org/unfoldml/logging-effect-fluentd.png)](https://travis-ci.org/unfoldml/logging-effect-fluentd)
-
-TODO Description.
+`fluentd` backend for `logging-effect`. Provides a logging handler that periodically sends a batch of log entries
